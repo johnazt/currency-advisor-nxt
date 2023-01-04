@@ -9,38 +9,42 @@ import {
 
 export const TableData = ({ data }) => {
 	console.log(data);
+
 	return (
 		<TableContainer>
 			<h3>Results Today:</h3>
+
 			<Table>
 				<TableHead>
 					<TableRow>
 						<TableCell>
-							<h2>Indicador</h2>
+							<h2>{data.autor ? 'Codigo' : 'Valor'}</h2>
 						</TableCell>
 						<TableCell>
-							<h2>Nombre</h2>
-						</TableCell>
-						<TableCell>
-							<h2>Valor</h2>
-						</TableCell>
-						<TableCell>
-							<h2>Fecha</h2>
+							<h2>{data.autor ? 'Nombre' : 'Valor'}</h2>
 						</TableCell>
 					</TableRow>
 				</TableHead>
-				<TableBody>
-					{Object.entries(data).map(([key, value]) => {
-						return (
-							<TableRow key={key}>
-								<TableCell>{key}</TableCell>
+
+				{Object.entries(data).map(([key, value], index) => {
+					return (
+						<TableBody key={key}>
+							<TableRow>
+								<TableCell>
+									<h2>{key}</h2>
+								</TableCell>
 								<TableCell>{value.nombre ? value.nombre : value}</TableCell>
-								<TableCell>{value.valor}</TableCell>
-								<TableCell>{value.fecha}</TableCell>
 							</TableRow>
-						);
-					})}
-				</TableBody>
+							{value.serie &&
+								value.serie.map((elem, index) => (
+									<TableRow key={index}>
+										<TableCell>{elem.valor}</TableCell>
+										<TableCell>{elem.fecha}</TableCell>
+									</TableRow>
+								))}
+						</TableBody>
+					);
+				})}
 			</Table>
 		</TableContainer>
 	);
