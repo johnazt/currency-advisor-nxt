@@ -3,14 +3,15 @@ import { Inter } from '@next/font/google';
 import useData from './hooks/useData';
 import '../styles/Home.module.css';
 import { TableData } from './Table';
-import { useState } from 'react';
-import { TablePaginationActionsUnstyled } from '@mui/base';
+import { useEffect, useState } from 'react';
+import getType from './api/type';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
 	//USING CUSTOM HOOK
-	const [dataAPI] = useData();
+	const { dataAPI, setDataAPI } = useData();
+
 	const [filterIndicator, setFilterIndicator] = useState('');
 
 	if (!dataAPI) {
@@ -21,8 +22,15 @@ export default function Home() {
 		setFilterIndicator(e.target.value);
 	};
 
-	const handleSubmit = e => {
+	// const convertData = data => {
+	// 	return data;
+	// };
+
+	const handleSubmit = async e => {
 		e.preventDefault();
+		const newData = await getType(filterIndicator);
+		// const convertedData = convertData(newData);
+		setDataAPI(newData);
 	};
 
 	return (
@@ -35,7 +43,7 @@ export default function Home() {
 			</Head>
 			<main className='main-container'>
 				<h1>INDICADORES ECONÓMICOS</h1>
-				<form className='input-container' onClick={handleSubmit}>
+				<form className='input-container' onSubmit={handleSubmit}>
 					<label htmlFor='name-indicator'>
 						Ingrese el indicador:
 						<input

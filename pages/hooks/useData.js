@@ -13,7 +13,7 @@ const useData = () => {
 		getData();
 	}, []);
 
-	return [dataAPI, setDataAPI];
+	return { dataAPI, setDataAPI };
 };
 
 export default useData;

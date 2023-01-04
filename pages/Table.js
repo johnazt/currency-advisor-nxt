@@ -4,13 +4,11 @@ import {
 	TableHead,
 	TableBody,
 	TableRow,
-	TableCell,
-	Paper
+	TableCell
 } from '@mui/material';
 
 export const TableData = ({ data }) => {
 	console.log(data);
-
 	return (
 		<TableContainer>
 			<h3>Results Today:</h3>
@@ -21,24 +19,26 @@ export const TableData = ({ data }) => {
 							<h2>Indicador</h2>
 						</TableCell>
 						<TableCell>
-							<h2>Fecha</h2>
+							<h2>Nombre</h2>
 						</TableCell>
 						<TableCell>
 							<h2>Valor</h2>
+						</TableCell>
+						<TableCell>
+							<h2>Fecha</h2>
 						</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
 					{Object.entries(data).map(([key, value]) => {
-						if (!value.length) {
-							return (
-								<TableRow key={key}>
-									<TableCell>{key}</TableCell>
-									<TableCell>{value.nombre}</TableCell>
-									<TableCell>{value.valor}</TableCell>
-								</TableRow>
-							);
-						}
+						return (
+							<TableRow key={key}>
+								<TableCell>{key}</TableCell>
+								<TableCell>{value.nombre ? value.nombre : value}</TableCell>
+								<TableCell>{value.valor}</TableCell>
+								<TableCell>{value.fecha}</TableCell>
+							</TableRow>
+						);
 					})}
 				</TableBody>
 			</Table>
