@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+import fetch from 'isomorphic-unfetch';
 
 const useData = () => {
 	const [dataAPI, setDataAPI] = useState(null);
 
 	useEffect(() => {
 		async function getData() {
-			const res = await fetch('http://localhost:8000/api/indicadores');
+			const res = await fetch(`http://localhost:3000/api/indicadores`);
 			const data = await res.json();
 			setDataAPI(data);
 		}

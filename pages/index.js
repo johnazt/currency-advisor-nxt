@@ -1,11 +1,30 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
-import styles from '../styles/Home.module.css';
-import { useEffect, useState } from 'react';
+import useData from './hooks/useData';
+import '../styles/Home.module.css';
+import { TableData } from './Table';
+import { useState } from 'react';
+import { TablePaginationActionsUnstyled } from '@mui/base';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+	//USING CUSTOM HOOK
+	const [dataAPI] = useData();
+	const [filterIndicator, setFilterIndicator] = useState('');
+
+	if (!dataAPI) {
+		return <div className='loader'>Loading...</div>;
+	}
+
+	const handleChange = e => {
+		setFilterIndicator(e.target.value);
+	};
+
+	const handleSubmit = e => {
+		e.preventDefault();
+	};
+
 	return (
 		<>
 			<Head>
@@ -14,8 +33,25 @@ export default function Home() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<main>
-				<h1>Indicadores</h1>
+			<main className='main-container'>
+				<h1>INDICADORES ECONÓMICOS</h1>
+				<form className='input-container' onClick={handleSubmit}>
+					<label htmlFor='name-indicator'>
+						Ingrese el indicador:
+						<input
+							type='text'
+							id='name-indicator'
+							value={filterIndicator}
+							onChange={handleChange}
+						/>
+						<button type='submit'>Buscar</button>
+					</label>
+					<label htmlFor='date-indicator'>
+						Busqueda por fecha:
+						<input type='date' id='date-indicator' />
+					</label>
+				</form>
+				<TableData data={dataAPI} />
 			</main>
 		</>
 	);
