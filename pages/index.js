@@ -53,7 +53,7 @@ export default function Home() {
 						/>
 					</label>
 					<label htmlFor='date-indicator' className='label-input'>
-						Ingresa la fecha: <br />
+						Ingrese la fecha: <br />
 						<input
 							className='input-text'
 							type='date'
