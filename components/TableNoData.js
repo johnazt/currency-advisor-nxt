@@ -11,9 +11,6 @@ const TableNoData = () => {
 				<TableCell>
 					<p className='indicator-data'>Data no disponible</p>
 				</TableCell>
-				<TableCell>
-					<p className='indicator-data'>Data no disponible</p>
-				</TableCell>
 			</TableRow>
 		</>
 	);

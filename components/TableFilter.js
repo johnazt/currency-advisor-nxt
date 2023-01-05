@@ -12,7 +12,6 @@ const TableFilter = ({ value }) => {
 				<TableCell>
 					<h2>{value.codigo.toUpperCase()}</h2>
 				</TableCell>
-				<TableCell></TableCell>
 			</TableRow>
 			<TableRow style={{ backgroundColor: '#222222' }}>
 				<TableCell>
@@ -21,7 +20,6 @@ const TableFilter = ({ value }) => {
 				<TableCell>
 					<h2>{value.nombre}</h2>
 				</TableCell>
-				<TableCell></TableCell>
 			</TableRow>
 			<TableRow style={{ backgroundColor: '#222222' }}>
 				<TableCell>
@@ -30,10 +28,8 @@ const TableFilter = ({ value }) => {
 				<TableCell>
 					<h2>Valor</h2>
 				</TableCell>
-				<TableCell>
-					<h2>Unidad de Medida</h2>
-				</TableCell>
 			</TableRow>
+
 			{value.serie.length > 0 ? (
 				value.serie.map((elem, index) => {
 					const date = new Date(elem.fecha);
@@ -44,15 +40,12 @@ const TableFilter = ({ value }) => {
 					};
 					const fecha = date.toLocaleDateString('es-ES', options);
 					return (
-						<TableRow style={{ backgroundColor: '#fcaa67' }}>
+						<TableRow key={index} style={{ backgroundColor: '#fcaa67' }}>
 							<TableCell>
 								<p className='indicator-data'>{fecha}</p>
 							</TableCell>
 							<TableCell>
 								<p className='indicator-data'>{elem.valor}</p>
-							</TableCell>
-							<TableCell>
-								<p className='indicator-data'>{value['unidad_medida']}</p>
 							</TableCell>
 						</TableRow>
 					);
@@ -60,6 +53,15 @@ const TableFilter = ({ value }) => {
 			) : (
 				<TableNoData />
 			)}
+
+			<TableRow style={{ backgroundColor: '#222222' }}>
+				<TableCell>
+					<h2>Unidad de Medida</h2>
+				</TableCell>
+				<TableCell>
+					<h2>{value['unidad_medida']}</h2>
+				</TableCell>
+			</TableRow>
 		</>
 	);
 };

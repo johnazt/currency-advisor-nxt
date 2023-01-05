@@ -14,14 +14,15 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 3em 0;
+	padding: 3em 1.5em;
+	position: relative;
 }
 h2 {
 	color: #fff;
+	font-size: 1.2em;
 }
 h3 {
 	margin: 2em 0;
-	font-size: 1.7rem;
 }
 .loader {
 	position: absolute;
@@ -37,15 +38,13 @@ h3 {
 }
 .main-container {
 	display: flex;
-	max-width: 1080px;
 	justify-content: center;
 	flex-direction: column;
-	padding: 3em;
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 0.4);
 	backdrop-filter: blur(5px);
 	box-shadow: 1px 5px 8px 6px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
-	position: relative;
+	padding: 2em;
 }
 .title-container {
 	display: flex;
@@ -55,8 +54,8 @@ h3 {
 	margin-bottom: 2em;
 }
 .gift {
-	height: 150px;
-	min-width: 150px;
+	height: 100px;
+	min-width: 100px;
 	border-radius: 50%;
 	background-image: url('https://media4.giphy.com/media/RiVTBScC3FFUgyv7sk/giphy.gif?cid=ecf05e479g74gqgyqn9i0ip6efjo9fxpytlp0p5bhc262xlw&rid=giphy.gif&ct=g');
 	background-repeat: no-repeat;
@@ -66,8 +65,8 @@ h3 {
 	z-index: 0;
 }
 .title {
-	color: hsl(161, 56%, 44%);
-	font-size: 3rem;
+	color: hsl(149, 91%, 17%);
+	font-size: 2.5rem;
 	padding: 1em 0;
 	text-align: center;
 }
@@ -81,6 +80,7 @@ h3 {
 .label-input {
 	font-size: 1.2rem;
 	font-weight: 600;
+	color: hsl(149, 91%, 17%);
 }
 .input-text {
 	border-radius: 5px;
@@ -89,8 +89,7 @@ h3 {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	border: transparent;
 	margin: 10px 0;
-	min-width: 340px;
-	max-width: 350px;
+	width: 100%;
 }
 .input-text::placeholder {
 	color: #666;
@@ -101,7 +100,7 @@ h3 {
 .btn-form {
 	font-size: 1.1em;
 	padding: 0.7em 1.5em;
-	background-color: #43c79d;
+	background-color: hsl(149, 91%, 17%);
 	border-radius: 5px;
 	border: transparent;
 	color: white;
@@ -113,24 +112,33 @@ h3 {
 	transition: background-color 0.25s ease-in-out;
 }
 .indicator-data {
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 }
-@media screen and (min-width: 750px) {
+
+@media screen and (min-width: 1024px) {
+	.main-container {
+		min-width: 1000px;
+		max-width: 1080px;
+		padding: 4em;
+	}
 	.title-container {
 		flex-direction: row;
-		column-gap: 3em;
+		justify-content: space-evenly;
+	}
+	.title {
+		font-size: 2.7rem;
 	}
 	.input-container {
 		flex-direction: row;
-		column-gap: 1.5em;
-		align-content: center;
+		column-gap: 3em;
+		align-items: center;
 	}
 	.input-text {
-		margin: 0.5em 0;
+		min-width: 300px;
 	}
 	.btn-form {
-		margin-bottom: 5px;
 		align-self: flex-end;
-		width: 250px;
+		margin-bottom: 10px;
+		min-width: 200px;
 	}
 }
