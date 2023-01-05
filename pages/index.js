@@ -1,30 +1,30 @@
 import Head from 'next/head';
-import { Inter } from '@next/font/google';
 import useData from '../hooks/useData';
-import '../styles/Home.module.css';
 import { TableData } from '../components/Table';
 import { useState } from 'react';
-import getType from './api/type';
-
-const inter = Inter({ subsets: ['latin'] });
+import getIndicatorByDate from './api/getIndicatorByDate';
 
 export default function Home() {
 	//USING CUSTOM HOOK
 	const { dataAPI, setDataAPI } = useData();
-	const [filterIndicator, setFilterIndicator] = useState('');
+	const [typeIndicator, setTypeIndicator] = useState('');
+	const [date, setDate] = useState('');
 
-	const handleChange = e => {
-		setFilterIndicator(e.target.value);
-	};
-
-	const handleSubmit = async e => {
-		e.preventDefault();
-		await getType(filterIndicator).then(data => setDataAPI(data));
-	};
-
+	//LOADER
 	if (!dataAPI) {
 		return <div className='loader'>Cargando...</div>;
 	}
+
+	const handleSubmit = async e => {
+		e.preventDefault();
+		if (!typeIndicator || !date) {
+			return;
+		} else {
+			await getIndicatorByDate(typeIndicator, date).then(data =>
+				setDataAPI(data)
+			);
+		}
+	};
 
 	return (
 		<>
@@ -39,24 +39,31 @@ export default function Home() {
 				<h1 className='title'>INDICADORES ECONÓMICOS</h1>
 				<form className='input-container' onSubmit={handleSubmit}>
 					<label htmlFor='name-indicator' className='label-input'>
-						Ingrese el Codigo:
+						Ingrese el Codigo: <br />
 						<input
 							type='text'
 							className='input-text'
 							id='name-indicator'
-							value={filterIndicator}
-							onChange={handleChange}
+							value={typeIndicator}
+							onChange={event => setTypeIndicator(event.target.value)}
+							required
 						/>
 					</label>
 					<label htmlFor='date-indicator' className='label-input'>
-						Busqueda por fecha:
-						<input className='input-text' type='date' id='date-indicator' />
+						Ingresa la fecha: <br />
+						<input
+							className='input-text'
+							type='date'
+							id='date-indicator'
+							value={date}
+							onChange={event => setDate(event.target.value)}
+							required
+						/>
 					</label>
 					<button className='btn-form' type='submit'>
 						Buscar
 					</button>
 				</form>
-
 				<TableData data={dataAPI} />
 			</main>
 		</>

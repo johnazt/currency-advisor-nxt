@@ -8,7 +8,7 @@ import {
 import Error from './Error';
 
 export const TableData = ({ data }) => {
-	if (data.data.error) {
+	if (data.data?.error) {
 		return <Error error={data.data} />;
 	}
 
