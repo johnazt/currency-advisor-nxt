@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
-import useData from './hooks/useData';
+import useData from '../hooks/useData';
 import '../styles/Home.module.css';
-import { TableData } from './Table';
-import { useEffect, useState } from 'react';
+import { TableData } from '../components/Table';
+import { useState } from 'react';
 import getType from './api/type';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -11,27 +11,20 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
 	//USING CUSTOM HOOK
 	const { dataAPI, setDataAPI } = useData();
-
 	const [filterIndicator, setFilterIndicator] = useState('');
-
-	if (!dataAPI) {
-		return <div className='loader'>Loading...</div>;
-	}
 
 	const handleChange = e => {
 		setFilterIndicator(e.target.value);
 	};
 
-	// const convertData = data => {
-	// 	return data;
-	// };
-
 	const handleSubmit = async e => {
 		e.preventDefault();
-		const newData = await getType(filterIndicator);
-		// const convertedData = convertData(newData);
-		setDataAPI(newData);
+		await getType(filterIndicator).then(data => setDataAPI(data));
 	};
+
+	if (!dataAPI) {
+		return <div className='loader'>Cargando...</div>;
+	}
 
 	return (
 		<>
@@ -63,6 +56,7 @@ export default function Home() {
 						Buscar
 					</button>
 				</form>
+
 				<TableData data={dataAPI} />
 			</main>
 		</>
