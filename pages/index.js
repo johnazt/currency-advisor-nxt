@@ -41,23 +41,27 @@ export default function Home() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
+
 			<main className='main-container'>
-				<h1>INDICADORES ECONÓMICOS</h1>
+				<h1 className='title'>INDICADORES ECONÓMICOS</h1>
 				<form className='input-container' onSubmit={handleSubmit}>
-					<label htmlFor='name-indicator'>
-						Ingrese el indicador:
+					<label htmlFor='name-indicator' className='label-input'>
+						Ingrese el Codigo:
 						<input
 							type='text'
+							className='input-text'
 							id='name-indicator'
 							value={filterIndicator}
 							onChange={handleChange}
 						/>
-						<button type='submit'>Buscar</button>
 					</label>
-					<label htmlFor='date-indicator'>
+					<label htmlFor='date-indicator' className='label-input'>
 						Busqueda por fecha:
-						<input type='date' id='date-indicator' />
+						<input className='input-text' type='date' id='date-indicator' />
 					</label>
+					<button className='btn-form' type='submit'>
+						Buscar
+					</button>
 				</form>
 				<TableData data={dataAPI} />
 			</main>

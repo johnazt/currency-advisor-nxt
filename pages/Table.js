@@ -12,36 +12,37 @@ export const TableData = ({ data }) => {
 
 	return (
 		<TableContainer>
-			<h3>Results Today:</h3>
+			<h3>Lista de Indicadores:</h3>
 
 			<Table>
-				<TableHead>
-					<TableRow>
-						<TableCell>
-							<h2>{data.autor ? 'Codigo' : 'Valor'}</h2>
-						</TableCell>
-						<TableCell>
-							<h2>{data.autor ? 'Nombre' : 'Valor'}</h2>
-						</TableCell>
-					</TableRow>
-				</TableHead>
-
 				{Object.entries(data).map(([key, value], index) => {
 					return (
 						<TableBody key={key}>
-							<TableRow>
-								<TableCell>
-									<h2>{key}</h2>
-								</TableCell>
-								<TableCell>{value.nombre ? value.nombre : value}</TableCell>
-							</TableRow>
-							{value.serie &&
-								value.serie.map((elem, index) => (
-									<TableRow key={index}>
-										<TableCell>{elem.valor}</TableCell>
-										<TableCell>{elem.fecha}</TableCell>
+							{value.serie ? (
+								<>
+									<TableRow>
+										<TableCell>
+											<h2>Valor</h2>
+										</TableCell>
+										<TableCell>
+											<h2>Fecha</h2>
+										</TableCell>
 									</TableRow>
-								))}
+									{value.serie.map((elem, index) => (
+										<TableRow key={index}>
+											<TableCell>{elem.valor}</TableCell>
+											<TableCell>{elem.fecha}</TableCell>
+										</TableRow>
+									))}
+								</>
+							) : (
+								<TableRow>
+									<TableCell>
+										<h2>{key}</h2>
+									</TableCell>
+									<TableCell>{value.nombre ? value.nombre : value}</TableCell>
+								</TableRow>
+							)}
 						</TableBody>
 					);
 				})}
