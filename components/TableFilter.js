@@ -6,27 +6,32 @@ const TableFilter = ({ value }) => {
 	return (
 		<>
 			<TableRow style={{ backgroundColor: '#222222' }}>
-				<TableCell style={{ color: '#fff' }}>
+				<TableCell>
 					<h2>Codigo:</h2>
 				</TableCell>
-				<TableCell style={{ color: '#fff' }}>
+				<TableCell>
 					<h2>{value.codigo.toUpperCase()}</h2>
 				</TableCell>
+				<TableCell></TableCell>
 			</TableRow>
 			<TableRow style={{ backgroundColor: '#222222' }}>
-				<TableCell style={{ color: '#fff' }}>
+				<TableCell>
 					<h2>Nombre:</h2>
 				</TableCell>
-				<TableCell style={{ color: '#fff' }}>
+				<TableCell>
 					<h2>{value.nombre}</h2>
 				</TableCell>
+				<TableCell></TableCell>
 			</TableRow>
-			<TableRow>
+			<TableRow style={{ backgroundColor: '#222222' }}>
 				<TableCell>
 					<h2>Fecha</h2>
 				</TableCell>
 				<TableCell>
 					<h2>Valor</h2>
+				</TableCell>
+				<TableCell>
+					<h2>Unidad de Medida</h2>
 				</TableCell>
 			</TableRow>
 			{value.serie.length > 0 ? (
@@ -39,9 +44,16 @@ const TableFilter = ({ value }) => {
 					};
 					const fecha = date.toLocaleDateString('es-ES', options);
 					return (
-						<TableRow>
-							<TableCell style={{ fontSize: '1.2rem' }}>{fecha}</TableCell>
-							<TableCell style={{ fontSize: '1.2rem' }}>{elem.valor}</TableCell>
+						<TableRow style={{ backgroundColor: '#fcaa67' }}>
+							<TableCell>
+								<p className='indicator-data'>{fecha}</p>
+							</TableCell>
+							<TableCell>
+								<p className='indicator-data'>{elem.valor}</p>
+							</TableCell>
+							<TableCell>
+								<p className='indicator-data'>{value['unidad_medida']}</p>
+							</TableCell>
 						</TableRow>
 					);
 				})

@@ -36,8 +36,10 @@ export default function Home() {
 			</Head>
 
 			<main className='main-container'>
-				<h1 className='title'>INDICADORES ECONÓMICOS</h1>
-				<div className='gift'></div>
+				<div className='title-container'>
+					<h1 className='title'>INDICADORES ECONÓMICOS</h1>
+					<div className='gift'></div>
+				</div>
 				<form className='input-container' onSubmit={handleSubmit}>
 					<label htmlFor='name-indicator' className='label-input'>
 						Ingrese el Codigo: <br />

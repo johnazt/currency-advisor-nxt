@@ -14,7 +14,10 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 3em 0 ;
+	padding: 3em 0;
+}
+h2 {
+	color: #fff;
 }
 h3 {
 	margin: 2em 0;
@@ -32,24 +35,30 @@ h3 {
 	background-color: rgba(0, 0, 0, 0.8);
 	font-weight: 600;
 }
-
 .main-container {
 	display: flex;
 	max-width: 1080px;
 	justify-content: center;
 	flex-direction: column;
 	padding: 3em;
-	background-color: rgba(251, 255, 254, 0.8);
+	background-color: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(5px);
 	box-shadow: 1px 5px 8px 6px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	position: relative;
 }
+.title-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2em;
+}
 .gift {
-	position: absolute;
 	height: 150px;
-	width: 150px;
+	min-width: 150px;
 	border-radius: 50%;
-	background-image: url("https://media4.giphy.com/media/RiVTBScC3FFUgyv7sk/giphy.gif?cid=ecf05e479g74gqgyqn9i0ip6efjo9fxpytlp0p5bhc262xlw&rid=giphy.gif&ct=g");
+	background-image: url('https://media4.giphy.com/media/RiVTBScC3FFUgyv7sk/giphy.gif?cid=ecf05e479g74gqgyqn9i0ip6efjo9fxpytlp0p5bhc262xlw&rid=giphy.gif&ct=g');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -61,18 +70,16 @@ h3 {
 	font-size: 3rem;
 	padding: 1em 0;
 	text-align: center;
-	padding-left: 100px;
 }
 .input-container {
 	display: flex;
-  flex-wrap: wrap;
+	flex-wrap: wrap;
 	flex-direction: column;
 	row-gap: 3em;
 	padding: 2em 0;
 }
 .label-input {
 	font-size: 1.2rem;
-	color: #049567;
 	font-weight: 600;
 }
 .input-text {
@@ -105,7 +112,14 @@ h3 {
 	background-color: hsl(161, 91%, 34%);
 	transition: background-color 0.25s ease-in-out;
 }
+.indicator-data {
+	font-size: 1.3rem;
+}
 @media screen and (min-width: 750px) {
+	.title-container {
+		flex-direction: row;
+		column-gap: 3em;
+	}
 	.input-container {
 		flex-direction: row;
 		column-gap: 1.5em;
