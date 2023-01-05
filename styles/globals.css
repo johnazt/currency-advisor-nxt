@@ -7,13 +7,22 @@
 body {
 	font-family: 'Poppins', sans-serif;
 	background-color: hsl(0, 0%, 99%);
-	background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+	background-image: url('https://blog.signaturit.com/hs-fs/hubfs/02-banner-digitalizacion.jpg?width=746&name=02-banner-digitalizacion.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3em 0 ;
 }
-
+h3 {
+	margin: 2em 0;
+	font-size: 1.7rem;
+}
 .loader {
+	position: absolute;
+	inset: 0;
 	display: flex;
 	height: 100vh;
 	font-size: 3rem;
@@ -27,19 +36,32 @@ body {
 .main-container {
 	display: flex;
 	max-width: 1080px;
-	margin: 3em auto;
 	justify-content: center;
 	flex-direction: column;
 	padding: 3em;
-	background-color: rgba(252, 254, 254, 0.9);
+	background-color: rgba(251, 255, 254, 0.8);
 	box-shadow: 1px 5px 8px 6px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
+	position: relative;
+}
+.gift {
+	position: absolute;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	background-image: url("https://media4.giphy.com/media/RiVTBScC3FFUgyv7sk/giphy.gif?cid=ecf05e479g74gqgyqn9i0ip6efjo9fxpytlp0p5bhc262xlw&rid=giphy.gif&ct=g");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	top: 3.5em;
+	z-index: 0;
 }
 .title {
-	color: hsl(161, 54%, 52%);
+	color: hsl(161, 56%, 44%);
 	font-size: 3rem;
 	padding: 1em 0;
 	text-align: center;
+	padding-left: 100px;
 }
 .input-container {
 	display: flex;
