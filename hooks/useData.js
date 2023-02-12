@@ -6,7 +6,7 @@ const useData = () => {
 
 	useEffect(() => {
 		async function getData() {
-			const res = await fetch(`http://localhost:3001/api/indicadores`);
+			const res = await fetch(`https://mindicador.cl/api/`);
 			const data = await res.json();
 			setDataAPI(data);
 		}
