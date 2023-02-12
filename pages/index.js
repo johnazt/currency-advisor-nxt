@@ -64,7 +64,7 @@ export default function Home() {
 						/>
 					</label>
 					<button className='btn-form' type='submit'>
-						Buscar
+						Consultar
 					</button>
 				</form>
 				<TableData data={dataAPI} />

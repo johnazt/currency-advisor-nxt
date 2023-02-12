@@ -1,16 +1,27 @@
-# Economic Indicators App
-## Getting Started
+# 💰 Currency Advisor
 
-First, run the development server:
+Una aplicación web que permite ingresar una fecha y el codigo de una divisa para ver su valor en pesos chilenos. Desarrollada con Next.js, React, CSS y manejo de solicitudes a una API.
 
-```bash
-npm run dev
-# or use
-docker-compose up
-```
+## 🚀 Características
+- Consultar valores de divisas en pesos chilenos en una fecha específica.
+- Seleccionar divisas para visualizar su valor en pesos chilenos.
+- Manejo de solicitudes a una API para obtener datos actualizados sobre el valor de las divisas.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 Uso
+1. Selecciona la fecha para la que deseas ver el valor de las divisas.
+2. Ingresa el codigo en lista de divisas que desea consultar.
+3. Haz clic en "Consultar" para ver los resultados.
+
+## 🛠️ Tecnologías
+ - Next.js
+ - React
+ - CSS
+ - API
+
+ Espero que esta documentación sea de ayuda para ti y para los usuarios de tu aplicación.
 
 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/indicadores](http://localhost:3000/api/indicadores). This endpoint can be edited in `pages/api/indicadores.js`.
+
+
+
