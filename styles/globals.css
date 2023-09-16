@@ -111,6 +111,13 @@ h3 {
 	background-color: hsl(161, 91%, 34%);
 	transition: background-color 0.25s ease-in-out;
 }
+.back {
+	color: hsl(149, 91%, 17%);
+	background-color: white;
+}
+.back:hover {
+	background-color: hsl(149, 70%, 82%);
+}
 .indicator-data {
 	font-size: 1.2rem;
 }

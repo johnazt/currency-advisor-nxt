@@ -1,5 +1,6 @@
 import React from 'react';
 import { TableRow, TableCell } from '@mui/material';
+import Link from 'next/link';
 
 const TableNoData = () => {
 	return (

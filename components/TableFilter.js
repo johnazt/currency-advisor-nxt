@@ -1,6 +1,7 @@
 import React from 'react';
 import { TableRow, TableCell } from '@mui/material';
 import TableNoData from './TableNoData';
+import Link from 'next/link';
 
 const TableFilter = ({ value }) => {
 	return (
@@ -40,7 +41,9 @@ const TableFilter = ({ value }) => {
 					};
 					const fecha = date.toLocaleDateString('es-ES', options);
 					return (
-						<TableRow key={index} style={{ backgroundColor: '#fcaa67' }}>
+						<TableRow
+							key={index}
+							style={{ backgroundColor: '#fcaa67' }}>
 							<TableCell>
 								<p className='indicator-data'>{fecha}</p>
 							</TableCell>
